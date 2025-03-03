@@ -14,7 +14,7 @@
 
   <!-- Importazione font -->
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&family=Montserrat:wght@600;700&display=swap');
   </style>
 
   <style>
@@ -28,7 +28,7 @@
       scroll-behavior: smooth;
     }
     body {
-      font-family: 'Poppins', Arial, sans-serif;
+      font-family: 'Poppins', Arial, sans-serif; /* Font primario per paragrafi */
       background: #1A1A1A; /* Sfondo scuro */
       color: #f3f3f3;
       overflow-x: hidden; /* Evita scrollbar orizzontale su mobile */
@@ -70,6 +70,7 @@
       width: 36px;
     }
     .logo span {
+      font-family: 'Montserrat', sans-serif; /* Font secondario per enfatizzare */
       font-size: 20px;
       color: #fff;
       font-weight: 600;
@@ -88,6 +89,7 @@
       font-weight: 500;
       font-size: 15px;
       transition: color 0.2s;
+      font-family: 'Poppins', sans-serif;
     }
     .nav-links a:hover {
       color: #2196F3; /* Blu principale in hover */
@@ -119,22 +121,38 @@
       min-height: 100vh;
     }
 
+    /* Titoli: uso Montserrat */
+    h1, h2, h3 {
+      font-family: 'Montserrat', sans-serif;
+      color: #2196F3;
+      margin-bottom: 0.5em;
+      letter-spacing: 0.5px;
+      line-height: 1.2;
+    }
+
+    /* Paragrafi: uso Poppins, un po' più grandi e line-height più ampia */
+    p {
+      font-family: 'Poppins', sans-serif;
+      font-size: 17px; /* +1px rispetto a 16 */
+      line-height: 1.65; /* leggermente più spazioso */
+      color: #ccc;
+      margin-bottom: 20px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     /* Sezione Home */
     #home {
       background: #1A1A1A;
     }
     #home h1 {
-      font-size: 2rem;
-      margin-bottom: 0.5em;
-      color: #2196F3; /* Titolo in blu */
-      letter-spacing: 0.5px;
+      font-size: 2.2rem;  /* leggermente più grande */
+      font-weight: 700;   /* Montserrat bold */
     }
     #home p {
-      font-size: 16px;
-      color: #ccc;
-      max-width: 700px;
-      margin: 0 auto 20px;
-      line-height: 1.6;
+      /* di base abbiamo già 17px, line-height 1.65 */
+      margin-bottom: 25px;
     }
 
     /* Sezione Servizi */
@@ -143,24 +161,17 @@
       padding-bottom: 80px;
     }
     #servizi h2 {
-      font-size: 1.8rem;
-      color: #2196F3;
+      font-size: 2rem;
+      font-weight: 700;
       margin-bottom: 1em;
-      font-weight: 600;
-      letter-spacing: 0.5px;
     }
     #servizi p {
-      max-width: 700px;
-      margin: 0 auto 30px;
-      line-height: 1.6;
-      font-size: 16px;
-      color: #ccc;
+      margin-bottom: 30px;
     }
     .services-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 20px;
-      /* Aumentiamo a 1200px invece di 900 */
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 10px; /* Per evitare sbordi su schermi piccoli */
@@ -178,52 +189,58 @@
       transform: translateY(-3px);
       border-color: #2196F3;
     }
-    /* Gestione immagini con aspect-ratio */
     .service-box img {
       width: 100%;
-      aspect-ratio: 16/9; /* Puoi provare 4/3, 3/2, ecc. */
+      aspect-ratio: 16/9; 
       object-fit: cover;  
       border-radius: 8px;
       margin-bottom: 15px;
       display: block;
     }
     .service-box h3 {
-      color: #2196F3;
-      margin-bottom: 10px;
+      font-family: 'Montserrat', sans-serif;
       font-weight: 600;
       font-size: 1.2rem;
+      margin-bottom: 10px;
       letter-spacing: 0.3px;
     }
     .service-box p {
+      font-family: 'Poppins', sans-serif;
       font-size: 15px;
       color: #ddd;
       line-height: 1.5;
     }
 
-    /* Sezione Perché */
+    /* Esempio di testo ampliato (commentato, rimuovi i commenti se vuoi) */
+    /*
+    <div class="service-box">
+      <img src="service-altro.png" alt="Altri Servizi" />
+      <h3>Altri Servizi su Misura</h3>
+      <p>Facciamo molto di più: consulenza, integrazione di sistemi, testing e validazione, training e molto altro...</p>
+      <p style="font-size:14px; color:#bbb;">
+        Vuoi scoprire come possiamo aiutarti ad accelerare i tuoi processi di sviluppo? <strong>Contattaci</strong> e ti proporremo un piano su misura!
+      </p>
+    </div>
+    */
+
+    /* Sezione Perché Scegliere */
     #perche {
       background: #1A1A1A;
       padding-bottom: 80px;
     }
     #perche h2 {
-      font-size: 1.8rem;
-      color: #2196F3;
+      font-size: 2rem;
+      font-weight: 700;
       margin-bottom: 1em;
-      font-weight: 600;
-      letter-spacing: 0.5px;
     }
     #perche p {
-      max-width: 700px;
-      margin: 0 auto 30px;
-      line-height: 1.6;
-      font-size: 16px;
-      color: #ccc;
+      margin-bottom: 30px;
     }
     .why-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 20px;
-      max-width: 1200px; /* Aumentato a 1200px */
+      max-width: 1200px;
       margin: 0 auto;
       text-align: left;
       padding: 0 10px;
@@ -241,6 +258,7 @@
       border-color: #2196F3;
     }
     .why-box h3 {
+      font-family: 'Montserrat', sans-serif;
       font-size: 1.1rem;
       color: #2196F3;
       margin-bottom: 0.5em;
@@ -248,9 +266,10 @@
       letter-spacing: 0.3px;
     }
     .why-box p {
+      font-family: 'Poppins', sans-serif;
       font-size: 15px;
       color: #ddd;
-      line-height: 1.6;
+      line-height: 1.5;
     }
 
     /* Sezione Collaborazioni */
@@ -259,24 +278,18 @@
       padding-bottom: 80px;
     }
     #collaborazioni h2 {
-      font-size: 1.8rem;
-      color: #2196F3;
+      font-size: 2rem;
+      font-weight: 700;
       margin-bottom: 1em;
-      font-weight: 600;
-      letter-spacing: 0.5px;
     }
     #collaborazioni p {
-      max-width: 700px;
-      margin: 0 auto 30px;
-      line-height: 1.6;
-      font-size: 16px;
-      color: #ccc;
+      margin-bottom: 30px;
     }
     .collab-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 20px;
-      max-width: 1200px; /* Aumentato a 1200px */
+      max-width: 1200px; 
       margin: 0 auto;
       text-align: left;
       padding: 0 10px;
@@ -295,6 +308,7 @@
       border-color: #2196F3;
     }
     .collab-item h3 {
+      font-family: 'Montserrat', sans-serif;
       font-size: 1.1rem;
       color: #2196F3;
       margin-bottom: 0.5em;
@@ -302,9 +316,10 @@
       letter-spacing: 0.3px;
     }
     .collab-item p {
+      font-family: 'Poppins', sans-serif;
       font-size: 15px;
       color: #ddd;
-      line-height: 1.6;
+      line-height: 1.5;
     }
 
     /* Sezione Progetti */
@@ -313,24 +328,18 @@
       padding-bottom: 80px;
     }
     #progetti h2 {
-      font-size: 1.8rem;
-      color: #2196F3;
+      font-size: 2rem;
+      font-weight: 700;
       margin-bottom: 1em;
-      font-weight: 600;
-      letter-spacing: 0.5px;
     }
     #progetti p {
-      max-width: 700px;
-      margin: 0 auto 20px;
-      line-height: 1.6;
-      font-size: 16px;
-      color: #ccc;
+      margin-bottom: 20px;
     }
     .project-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 20px;
-      max-width: 1200px; /* Aumentato a 1200px */
+      max-width: 1200px; 
       margin: 0 auto;
       padding: 0 10px;
     }
@@ -348,6 +357,7 @@
       border-color: #2196F3;
     }
     .project-item h3 {
+      font-family: 'Montserrat', sans-serif;
       margin-bottom: 10px;
       color: #2196F3;
       font-weight: 600;
@@ -355,6 +365,7 @@
       letter-spacing: 0.3px;
     }
     .project-item p {
+      font-family: 'Poppins', sans-serif;
       font-size: 15px;
       line-height: 1.5;
       color: #ddd;
@@ -366,18 +377,12 @@
       padding-bottom: 80px;
     }
     #contatti h2 {
-      font-size: 1.8rem;
-      color: #2196F3;
+      font-size: 2rem;
+      font-weight: 700;
       margin-bottom: 1em;
-      font-weight: 600;
-      letter-spacing: 0.5px;
     }
     #contatti p {
-      max-width: 700px;
-      margin: 0 auto 20px;
-      line-height: 1.6;
-      font-size: 16px;
-      color: #ccc;
+      margin-bottom: 20px;
     }
     .cta {
       display: inline-block;
@@ -392,6 +397,7 @@
       font-weight: 600;
       border: none;
       letter-spacing: 0.3px;
+      font-family: 'Montserrat', sans-serif; /* CTA usa Montserrat */
     }
     .cta:hover {
       background: #1E88E5; /* hover blu più scuro */
@@ -460,15 +466,15 @@
         transition: width 0.2s ease;
       }
       
+      /* Ridimensiono i titoli su schermi medi */
       #home h1 {
         font-size: 1.7rem;
       }
-      #home p,
-      #servizi p,
-      #perche p,
-      #collaborazioni p,
-      #progetti p,
-      #contatti p {
+      h2 {
+        font-size: 1.6rem;
+      }
+
+      p {
         font-size: 15px;
       }
     }
@@ -488,6 +494,7 @@
         font-size: 1.5rem;
       }
 
+      /* Forza una colonna */
       .services-container,
       .why-container,
       .collab-grid,
@@ -506,25 +513,19 @@
       #contatti {
         padding-bottom: 60px;
       }
-
-      /* Più colonne sui desktop larghi */
-      .services-container {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 30px;
+      h2 {
+        font-size: 2.2rem; /* leggermente più grande su super desktop */
       }
-      .why-container {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 30px;
-      }
-      .collab-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 30px;
-      }
+      .services-container,
+      .why-container,
+      .collab-grid,
       .project-grid {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 30px;
+        max-width: 1200px;
       }
     }
+
   </style>
 </head>
 <body>
@@ -571,7 +572,7 @@
   <!-- Sezione Servizi -->
   <section id="servizi">
     <h2>Servizi</h2>
-    <p>Scopri come possiamo aiutarti a realizzare il tuo prossimo progetto.</p>
+    <p>Scopri come possiamo aiutarti a realizzare il tuo prossimo progetto, velocizzando i processi e riducendo i costi di gestione.</p>
     <div class="services-container">
       <div class="service-box">
         <img src="service-software.png" alt="Sviluppo Software" onerror="this.style.display='none'" />
@@ -690,8 +691,8 @@
   <!-- Footer -->
   <footer>
     <p>© <script>document.write(new Date().getFullYear());</script> Key-Code - Tutti i diritti riservati.</p>
-    <p>Key-Code - P.IVA: 05332870269</p>
-
+    <p>Key-Code di Alessandro Partesotti - P.IVA: 05332870269</p>
+    <p>Indirizzo: Via Piave 18, 31030 Castello di Godeo</p>
   </footer>
 
   <!-- Script per hamburger menu -->
@@ -701,4 +702,5 @@
       navLinks.classList.toggle('open');
     }
   </script>
-</b
+</body>
+</html>
