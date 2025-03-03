@@ -109,7 +109,6 @@
 
     /* ---------- SEZIONI BASE ---------- */
     section {
-      min-height: 100vh;
       width: 100%;
       padding: 90px 20px 80px 20px; /* top extra per la navbar */
       display: flex;
@@ -117,6 +116,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
+      min-height: 100vh;
     }
 
     /* Sezione Home */
@@ -160,7 +160,8 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 20px;
-      max-width: 900px;
+      /* Aumentiamo a 1200px invece di 900 */
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 10px; /* Per evitare sbordi su schermi piccoli */
     }
@@ -180,8 +181,8 @@
     /* Gestione immagini con aspect-ratio */
     .service-box img {
       width: 100%;
-      aspect-ratio: 16/9; /* Puoi provare altri rapporti, es. 4/3 */
-      object-fit: cover;  /* Ritaglia per riempire lo spazio */
+      aspect-ratio: 16/9; /* Puoi provare 4/3, 3/2, ecc. */
+      object-fit: cover;  
       border-radius: 8px;
       margin-bottom: 15px;
       display: block;
@@ -222,7 +223,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 20px;
-      max-width: 900px;
+      max-width: 1200px; /* Aumentato a 1200px */
       margin: 0 auto;
       text-align: left;
       padding: 0 10px;
@@ -275,7 +276,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 20px;
-      max-width: 900px;
+      max-width: 1200px; /* Aumentato a 1200px */
       margin: 0 auto;
       text-align: left;
       padding: 0 10px;
@@ -329,7 +330,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 20px;
-      max-width: 900px;
+      max-width: 1200px; /* Aumentato a 1200px */
       margin: 0 auto;
       padding: 0 10px;
     }
@@ -414,7 +415,7 @@
     }
 
     /* ---------- MEDIA QUERIES ---------- */
-    
+
     @media (max-width: 1024px) {
       .nav-container {
         height: auto;
@@ -454,8 +455,6 @@
         font-size: 14px;
         width: 100%;
       }
-
-      /* Quando classe .open è attiva, mostro i link */
       .nav-links.open {
         width: 180px;
         transition: width 0.2s ease;
@@ -494,6 +493,36 @@
       .collab-grid,
       .project-grid {
         grid-template-columns: 1fr;
+      }
+    }
+
+    /* ---------- MEDIA QUERY >1200PX ---------- */
+    @media (min-width: 1200px) {
+      /* Riduci un po' il padding verticale: da 80px a 60px */
+      #servizi,
+      #perche,
+      #collaborazioni,
+      #progetti,
+      #contatti {
+        padding-bottom: 60px;
+      }
+
+      /* Più colonne sui desktop larghi */
+      .services-container {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+      }
+      .why-container {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+      }
+      .collab-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+      }
+      .project-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
       }
     }
   </style>
@@ -661,8 +690,8 @@
   <!-- Footer -->
   <footer>
     <p>© <script>document.write(new Date().getFullYear());</script> Key-Code - Tutti i diritti riservati.</p>
-    <p>Key-Code di Alessandro Partesotti - P.IVA: 05332870269</p>
-    <p>Indirizzo: Via Piave 18, 31030 Castello di Godeo</p>
+    <p>Key-Code - P.IVA: 05332870269</p>
+
   </footer>
 
   <!-- Script per hamburger menu -->
@@ -672,5 +701,4 @@
       navLinks.classList.toggle('open');
     }
   </script>
-</body>
-</html>
+</b
