@@ -1,15 +1,168 @@
+/* CSS separato per una migliore organizzazione */
+/* Questo file è stato ottimizzato rispetto al precedente con tutte le nuove caratteristiche */
+
 #particles-js {
-    position: fixed;  /* fixed invece di absolute per coprire tutta la pagina */
+    position: fixed;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    background: linear-gradient(45deg, #001a00, #000033);
     z-index: -1;
+    background: linear-gradient(135deg, #050a18 0%, #0a1a2a 100%);
 }
 
-/* Assicurati che il contenuto del tuo sito abbia position: relative e z-index positivo */
-.content {
+/* Variabili CSS per una gestione più semplice dei colori e delle dimensioni */
+:root {
+    --primary: #3a86ff;
+    --primary-dark: #2667cc;
+    --accent: #00d4ff;
+    --dark: #0a0e17;
+    --dark-surface: #111827;
+    --gray-100: #f3f4f6;
+    --gray-300: #d1d5db;
+    --gray-500: #6b7280;
+    --card-bg: rgba(17, 24, 39, 0.7);
+    --card-border: rgba(255, 255, 255, 0.08);
+    --glass-effect: rgba(255, 255, 255, 0.05);
+    --shadow-sm: 0 2px 5px rgba(0,0,0,0.15);
+    --shadow-md: 0 4px 10px rgba(0,0,0,0.2);
+    --shadow-lg: 0 8px 30px rgba(0,0,0,0.25);
+}
+
+/* Stili per l'effetto glassmorphism */
+.glass {
+    background: rgba(17, 24, 39, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+}
+
+/* Effetti hover avanzati per le card */
+.card {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: linear-gradient(to bottom, rgba(58, 134, 255, 0.1), transparent);
+    transition: height 0.3s ease;
+    z-index: -1;
+    opacity: 0;
+}
+
+.card:hover::before {
+    height: 100%;
+    opacity: 1;
+}
+
+/* Effetti di animazione per migliorare UX */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(58, 134, 255, 0.4);
+    }
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(58, 134, 255, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(58, 134, 255, 0);
+    }
+}
+
+/* Stili per bottoni e CTA animati */
+.cta {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     position: relative;
-    z-index: 1;
+    overflow: hidden;
+}
+
+.cta::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.cta:hover::after {
+    width: 300%;
+    height: 300%;
+}
+
+/* Media query avanzate per una migliore responsività */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+    
+    h1 {
+        font-size: 3.5rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 575px) {
+    section {
+        padding: 80px 0 40px;
+    }
+    
+    .card {
+        padding: 1.25rem;
+    }
+    
+    h1 {
+        font-size: 1.6rem;
+    }
+    
+    h2 {
+        font-size: 1.4rem;
+    }
+    
+    h3 {
+        font-size: 1.2rem;
+    }
+    
+    .hero-tagline {
+        font-size: 0.8rem;
+    }
+}
+
+/* Effetti per il Scroll Reveal */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.reveal-on-scroll.active {
+    opacity: 1;
+    transform: translateY(0);
 }
